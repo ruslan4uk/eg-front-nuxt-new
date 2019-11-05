@@ -1,0 +1,25 @@
+{
+  "name": "frontend_new",
+  "version": "1.0.0",
+  "description": "My magnificent Nuxt.js project",
+  "author": "Ruslan",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.10.2",
+    "element-ui": "^2.12.0",
+    "@nuxtjs/axios": "^5.8.0",
+    "@nuxtjs/auth": "^4.8.4",
+    "bootstrap-vue": "^2.0.4"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
+  }
+}

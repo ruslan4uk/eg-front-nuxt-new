@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap&subset=cyrillic')
+
+*
+  font-family: 'Montserrat', sans-serif
+  font-weight: 400
+  outline: none !important
+
+// Colors
+// #ff7555 - Orange
+// #405089 - Blue
+// #585f76 - Text
+
+
+.logo
+  padding: 1.125rem .625rem
+  border-radius: 15px
+  background-color: #ff7555
+  font-size: 1.125rem
+  font-weight: 700
+  display: inline-block
+  color: #ffffff
+  &:hover
+    color: #ffffff
+    text-decoration: none
+
+img
+  max-width: 100%
+
+.footer-fix
+  min-height: calc(100vh - 16.5rem)
+
+// Button
+//.el-button--primary, .el-button--primary:focus, .el-button--primary:active
+//  background-color: #405089
+//  border-color: #cccccc
+//  color: #ffffff
+//  &:hover
+//    background-color: #ffffff
+//    border-color: #cccccc
+//    color: #405089
+//
+//.el-button--default, .el-button--default:focus, .el-button--default:active
+//  background-color: #ffffff
+//  border-color: #cccccc
+//  color: #405089
+//  &:hover
+//    background-color: #405089
+//    border-color: #cccccc
+//    color: #ffffff
+
+// Background
+.bg
+  &--blue
+    background-color: #405089
+  &--orange
+    background-color: #ff7555
+  &--transparent
+    background-color: transparent
+  &--white
+    background-color: #ffffff
+
+// Auth
+.auth
+  &__title
+    font-size: 2rem
+    line-height: 1.4
+    font-weight: 400
+    color: #585f76
+  &__subtitle
+    font-size: 1rem
+    font-weight: 300
+    color: #585f76
+  &__radio
+    display: flex !important
+    width: 100%
+    & label, & span
+      width: 100%
+      display: block
+
+
+// Element ui fix
+.el-form-item__content
+  line-height: 1rem !important
+
+.el-checkbox
+  display: flex !important
+  &__input
+    margin-top: 2px !important
+  &__label
+    white-space: normal !important
+
+.el-tag
+  background-color: #efefef !important
+  color: #585f76 !important
+
+
+
+// Bootstrap
+.card-title
+  font-size: 1.5rem
+  font-weight: 400
+.card-subtitle
+  font-size: 1rem
+  font-weight: 400
+.card-title-small
+  color: silver
+  font-size: .75rem
+  font-weight: 400
+.rounded25
+  border-radius: 20px
+
+.shadow25
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.05)
+.shadow-md-25
+  @media screen and (min-width: 768px)
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.05)
