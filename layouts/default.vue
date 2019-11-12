@@ -2,6 +2,8 @@
   <div>
     <navbar />
 
+    <div class="navigation-fix"></div>
+
     <nuxt />
 
     <Footer />
@@ -19,6 +21,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="sass">
+.navigation-fix
+  height: 7.5rem
+  display: block
 </style>

@@ -46,6 +46,7 @@ export default {
       state.language          = payload.language;
       state.category          = payload.category;
       state.contact_type      = payload.contact_type;
+      state.currency          = payload.currency;
       state.people_category   = payload.people_category;
       state.price_type        = payload.price_type;
       state.service           = payload.service;
@@ -56,7 +57,7 @@ export default {
   actions: {
     async init ({ commit }) {
       await this.$axios.get('/init').then( ({ data }) => {
-        commit('SET_INIT_DATA', data.data)
+        commit('SET_INIT_DATA', data.data);
       })
     },
   },

@@ -110,7 +110,7 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     this.$axios.post('/auth/register', this.form).then( ({ data }) => {
-                        this.$router.push({ name: 'auth-confirm' })
+                        this.$router.push({ name: 'auth-confirm', query: { type: 'register' } })
                     });
 
                 } else {

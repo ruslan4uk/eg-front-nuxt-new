@@ -1,20 +1,17 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" class="bg--blue py-3 mb-5">
+  <b-navbar toggleable="lg" type="dark" class="py-2 mb-5 bg--blue" fixed="top">
     <b-container>
       <b-navbar-brand href="" :to="{ name: 'index' }" class="logo">EG</b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-4">
-          <b-nav-item href="#" class="navigation__link">О нас</b-nav-item>
-          <b-nav-item href="#" class="navigation__link">Обратная связь</b-nav-item>
+          <b-nav-item href="#" class="navigation__link d-none d-md-block">О нас</b-nav-item>
+          <b-nav-item href="#" class="navigation__link d-none d-md-block">Обратная связь</b-nav-item>
         </b-navbar-nav>
 
         <!-- is not Auth -->
         <b-navbar-nav class="ml-auto" v-if="!$auth.loggedIn">
           <nuxt-link :to="{ name: 'auth-login' }" class="mr-3"><el-button round>Вход</el-button></nuxt-link>
-          <nuxt-link :to="{ name: 'auth-register' }"><el-button round>Регистрация</el-button></nuxt-link>
+          <nuxt-link :to="{ name: 'auth-register' }" class=""><el-button round>Регистрация</el-button></nuxt-link>
         </b-navbar-nav>
 
         <!-- is Auth -->
@@ -23,21 +20,17 @@
           <el-dropdown trigger="click" class="navigation-user">
               <span class="el-dropdown-link d-flex align-items-center">
                 <span class="mr-2 navigation-user__name">{{ $auth.user.name }}</span>
-                <el-avatar :src="$auth.user.avatar" shape="circle">
+                <el-avatar :src="$auth.user.avatar" shape="circle" :size="48">
                   <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
                 </el-avatar>
               </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="$router.push({ name: 'profile'})">Мой профиль</el-dropdown-item>
-              <el-dropdown-item command="b">Action 2</el-dropdown-item>
-              <el-dropdown-item command="c">Action 3</el-dropdown-item>
-              <el-dropdown-item command="d" disabled>Action 4</el-dropdown-item>
+              <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Личный кабинет</el-dropdown-item>
               <el-dropdown-item divided @click.native="logout">Выход</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
 
         </b-navbar-nav>
-      </b-collapse>
     </b-container>
   </b-navbar>
 </template>

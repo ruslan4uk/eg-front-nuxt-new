@@ -24,7 +24,13 @@
               <el-checkbox v-model="form.remember_me">Запомнить меня</el-checkbox>
             </el-form-item>
 
-            <el-button type="primary" round class="w-100 py-3" @click="login('loginForm')">От винта!</el-button>
+            <el-button type="primary" round class="w-100 py-3" native-type="submit" @click.prevent="login('loginForm')">От винта!</el-button>
+
+            <a type="primary"
+              class="d-block w-100 my-3 text-center auth__confirm-btn"
+              @click.prevent="sendConfirmEmail"
+              v-if="errors.code === 12">Выслать повторно письмо для подтверждения?</a>
+
           </el-form>
         </b-col>
       </b-row>
@@ -59,14 +65,22 @@ export default {
         login(formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    this.$auth.loginWith('local', { data: this.form })//.then(() => {
-                    //this.$router.push( { path: '/dashboard' } )
-                    //})
+                    this.$auth.loginWith('local', { data: this.form })
                 } else {
                     return false;
                 }
             });
         },
+
+        sendConfirmEmail() {
+            // if(this.form.email) { return false}
+
+            this.$axios.post('/auth/confirm-send', { email: this.form.email }).then( () => {
+                this.$notify({ title: 'Отлично!', message: 'Письмо с подтверждением отправлено на почту!', type: 'success', duration: 5000 });
+            }).catch( () => {
+                this.$notify({ title: 'Ошибка!', message: 'Некоректный email адрес!', type: 'error', duration: 5000 });
+            })
+        }
     }
 }
 </script>

@@ -91,7 +91,7 @@ export default {
   router: {
     linkActiveClass: 'active',
     middleware: [
-      'clearValidationErrors'
+      'clearValidationErrors',
     ]
   },
 

@@ -2,8 +2,33 @@
 
 *
   font-family: 'Montserrat', sans-serif
-  font-weight: 400
+  //font-weight: 400
   outline: none !important
+
+html, body
+  background-color: #fefefe
+  font-size: 16px !important
+  @media screen and (min-width: 768px)
+    font-size: 14px !important
+  @media screen and (min-width: 1200px)
+    font-size: 16px !important
+
+button,
+input,
+select,
+textarea
+  font-size: 13px !important
+  @media screen and (min-width: 768px)
+    font-size: 13px !important
+  font-family: inherit
+  line-height: 10px
+  color: inherit
+
+p, span
+  font-size: 0.875rem
+
+.el-form-item span
+  font-size: 0.75rem
 
 // Colors
 // #ff7555 - Orange
@@ -13,6 +38,7 @@
 
 .logo
   padding: 1.125rem .625rem
+  margin: 0.25rem 0
   border-radius: 15px
   background-color: #ff7555
   font-size: 1.125rem
@@ -26,38 +52,151 @@
 img
   max-width: 100%
 
-.footer-fix
-  min-height: calc(100vh - 16.5rem)
+.image-loading
+  font-size: 2rem
+  color: #405089
+  padding: 3rem
+  background-color: #eeeeee
 
-// Button
-//.el-button--primary, .el-button--primary:focus, .el-button--primary:active
-//  background-color: #405089
-//  border-color: #cccccc
-//  color: #ffffff
-//  &:hover
-//    background-color: #ffffff
-//    border-color: #cccccc
-//    color: #405089
-//
-//.el-button--default, .el-button--default:focus, .el-button--default:active
-//  background-color: #ffffff
-//  border-color: #cccccc
-//  color: #405089
-//  &:hover
-//    background-color: #405089
-//    border-color: #cccccc
-//    color: #ffffff
+.footer-fix
+  min-height: calc(100vh - 19rem)
 
 // Background
 .bg
   &--blue
     background-color: #405089
   &--orange
-    background-color: #ff7555
+    background-color: #ff7555 !important
   &--transparent
     background-color: transparent
   &--white
     background-color: #ffffff
+
+
+// Main
+.main-top
+  & .el-input__inner
+    font-size: 1.125rem !important
+    height: auto
+    padding: 0.25rem 1rem
+    border-radius: 0
+  & button
+    font-size: 1rem !important
+    line-height: inherit
+    display: flex
+    height: 100%
+    border-radius: 0
+
+
+// Tour card
+.tour-card
+  border-radius: 6px
+  overflow: hidden
+  transition: all ease 0.25s
+  &:hover
+    box-shadow: 0 4px 10px 8px rgba(0,0,0,.05)
+    text-decoration: none
+  &__image
+    line-height: 0
+    overflow: hidden
+    display: flex
+    align-items: center
+    height: 16rem
+    @media screen and (min-width: 768px)
+      height: 14rem
+    & > div, & img
+      width: 100%
+  &__content
+    width: 100%
+  &__title
+    font-size: 1.125rem
+    line-height: 1.3
+    color: #000000
+    font-weight: 700
+  &__guide
+    text-decoration: none
+  &__username
+    color: #585f76
+    font-size: 0.875rem
+    font-weight: 500
+  &__about
+    color: #555555
+    font-size: 0.825rem
+    font-weight: 500
+  &__route
+    color: #999999
+    font-size: 0.75rem
+    font-weight: 500
+    & i
+      font-size: 1rem
+  &__price
+    font-weight: 700
+    font-size: 1.25rem
+    color: #000000
+    & span
+      color: #999999
+      font-weight: normal
+      font-size: 0.825rem
+  &__timing
+    font-size: 0.825rem
+    color: #444444
+    & i
+      font-size: 1rem
+
+
+// User profile
+.user-profile
+  &__avatar
+    max-width: 13rem
+    margin: 0 auto
+    @media screen and (min-width: 768px)
+      margin: 0
+      max-width: 90%
+  &__about
+    white-space: pre-wrap
+    font-size: 0.875rem
+    font-weight: 300
+  &__info-group
+    font-size: 0.875rem
+    font-weight: 500
+    & span
+      color: #585f76
+      font-weight: 400
+      font-size: 0.825rem
+
+  &__navbar
+    & ul
+      margin: 0
+      padding: 0
+      & li
+        list-style: none
+        & a
+          font-size: 0.875rem
+          font-weight: 500
+          color: #000000
+          display: block
+          padding: 0.25rem 0
+          text-decoration: none
+          text-align: center
+          @media screen and (min-width: 768px)
+            text-align: left
+          &.active, &:hover
+            color: #e47459
+
+
+// Review
+.review
+  &__author-avatar, &__author-avatar img
+    width: 100% !important
+    height: auto !important
+  &__author-name
+    font-size: 0.825rem
+    font-weight: 500
+    text-align: center
+  &__text
+    padding: 1rem 1.5rem
+    background-color: #f8f8f8
+    font-size: 0.875rem
 
 // Auth
 .auth
@@ -76,7 +215,12 @@ img
     & label, & span
       width: 100%
       display: block
-
+  &__confirm-btn
+    color: #405089 !important
+    font-weight: 600
+    font-size: 0.8775rem
+    cursor: pointer
+    text-decoration: none
 
 // Element ui fix
 .el-form-item__content
@@ -93,24 +237,40 @@ img
   background-color: #efefef !important
   color: #585f76 !important
 
+.el-message-box
+  display: inline-block
+  width: 420px
+  max-width: calc(100% - 2rem)
 
+// Multi uploader
 
 // Bootstrap
+
 .card-title
   font-size: 1.5rem
   font-weight: 400
 .card-subtitle
-  font-size: 1rem
-  font-weight: 400
+  font-size: 0.875rem
+  font-weight: 300
+  color: #777777
 .card-title-small
   color: silver
   font-size: .75rem
   font-weight: 400
+
+.rounded0
+  border-radius: 0
 .rounded25
-  border-radius: 20px
+  border-radius: 5px
 
 .shadow25
   box-shadow: 0 0 10px 2px rgba(0,0,0,.05)
+  background-color: #ffffff
 .shadow-md-25
   @media screen and (min-width: 768px)
     box-shadow: 0 0 10px 2px rgba(0,0,0,.05)
+    background-color: #ffffff
+.small-text
+  font-size: 0.75rem
+  line-height: 1.4
+
