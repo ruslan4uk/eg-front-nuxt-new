@@ -1,6 +1,6 @@
 <template>
   <div class="tour-card d-block" :alt="item.name">
-    <nuxt-link :to="{ name: 'i-id-excursion-excursion', params: { id: item.user.id, excursion: item.id } }">
+    <nuxt-link :to="{ name: 'excursion-excursion', params: { id: item.user.id, excursion: item.id } }">
       <div class="tour-card__image">
         <el-image :src="item.avatar" class="tour-profile-list__avatar" lazy>
           <template slot="placeholder">
@@ -23,7 +23,7 @@
         <div class="tour-card__username ml-2">{{ item.user.name }}</div>
       </nuxt-link>
 
-      <nuxt-link :to="{ name: 'i-id-excursion-excursion', params: { id: item.user.id, excursion: item.id } }">
+      <nuxt-link :to="{ name: 'excursion-excursion', params: { id: item.user.id, excursion: item.id } }">
         <div class="tour-card__title mb-2">{{ item.name | truncate(60) }}</div>
         <p class="tour-card__about mb-2">{{ item.about | truncate(70) }}</p>
         <p class="tour-card__route mb-2" v-if="item.tour_route"><i class="el-icon-guide mr-2"></i>{{ item.tour_route }}</p>
