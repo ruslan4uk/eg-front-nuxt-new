@@ -23,7 +23,7 @@
       </b-col>
     </b-row>
 
-    <el-divider class="d-md-none mb-4"></el-divider>
+<!--    <el-divider class="d-md-none mb-4"></el-divider>-->
 
     <!-- Navigation -->
     <div class="user-profile__navbar my-4 py-2 d-none d-md-block">
