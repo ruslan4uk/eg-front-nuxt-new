@@ -1,7 +1,7 @@
 <template>
   <b-container class="footer-fix">
     <b-row>
-      <b-col cols="12" md="4" lg="3">
+      <b-col cols="12" md="4" lg="3" class="d-none d-md-block">
         <h6 class="mb-3">Личный кабинет</h6>
         <div class="left-navigation mb-4">
           <ul>
@@ -31,6 +31,7 @@
 
 <script>
 export default {
+    scrollToTop: true,
     methods: {
         handleCreateTour() {
             this.$axios.get('/profile/tours/create').then( ({ data }) => {

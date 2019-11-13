@@ -24,8 +24,8 @@
       </nuxt-link>
 
       <nuxt-link :to="{ name: 'i-id-excursion-excursion', params: { id: item.user.id, excursion: item.id } }">
-        <div class="tour-card__title mb-2">{{ item.name | truncate(70) }}</div>
-        <p class="tour-card__about mb-2">{{ item.about | truncate(80) }}</p>
+        <div class="tour-card__title mb-2">{{ item.name | truncate(60) }}</div>
+        <p class="tour-card__about mb-2">{{ item.about | truncate(70) }}</p>
         <p class="tour-card__route mb-2" v-if="item.tour_route"><i class="el-icon-guide mr-2"></i>{{ item.tour_route }}</p>
 
         <div class="d-flex justify-content-between align-items-center">
@@ -100,11 +100,11 @@
       font-size: 0.825rem
     &__about
       color: #555555
-      font-size: 0.825rem
+      font-size: 0.875rem
       line-height: 1.3
     &__route
       color: #999999
-      font-size: 0.75rem
+      font-size: 0.875rem
       line-height: 1.3
       & i
         font-size: 1rem

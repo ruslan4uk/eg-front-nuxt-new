@@ -14,9 +14,9 @@
 
 html, body
   background-color: #fbfbfb
-  font-size: 15px !important
-  @media screen and (min-width: 768px)
-    font-size: 16px !important
+  //font-size: 15px !important
+  //@media screen and (min-width: 768px)
+  //  font-size: 16px !important
 
 
 button,
@@ -133,6 +133,11 @@ img
 // Element ui fix
 .el-form-item__content
   line-height: 1rem !important
+
+.el-scrollbar__wrap
+  margin-bottom: 0 !important
+  @media screen and (min-width: 540px)
+    margin-bottom: -15px !important
 
 .el-checkbox
   display: flex !important

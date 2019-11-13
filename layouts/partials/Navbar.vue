@@ -25,7 +25,14 @@
                 </el-avatar>
               </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Личный кабинет</el-dropdown-item>
+              <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Настройка профиля</el-dropdown-item>
+
+              <el-dropdown-item divided @click.native="$router.push({ name: 'profile-index-change-password'})">Сменить пароль</el-dropdown-item>
+              <el-dropdown-item @click.native="$router.push({ name: 'profile-index-messenger'})">Мессенджер</el-dropdown-item>
+
+              <el-dropdown-item divided @click.native="handleCreateTour" v-if="$auth.user.role === null || $auth.user.role === 'guide'">Новая экскурсия</el-dropdown-item>
+              <el-dropdown-item @click.native="$router.push({ name: 'profile-index-tours'})" v-if="$auth.user.role === null || $auth.user.role === 'guide'">Список экскурсий</el-dropdown-item>
+
               <el-dropdown-item divided @click.native="logout">Выход</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -40,6 +47,12 @@ export default {
   methods: {
       logout() {
           this.$auth.logout();
+      },
+
+      handleCreateTour() {
+          this.$axios.get('/profile/tours/create').then( ({ data }) => {
+              this.$router.push({ name: 'profile-index-tours-id', params: { id: data.data } })
+          })
       }
   }
 }
