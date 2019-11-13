@@ -4,6 +4,8 @@ import locale from 'element-ui/lib/locale/lang/en'
 
 import '@/assets/index.css'
 
+import 'element-ui/lib/theme-chalk/reset.css'
+
 import '@/node_modules/flag-icon-css/sass/flag-icon.scss'
 
 Vue.use(Element, { locale });

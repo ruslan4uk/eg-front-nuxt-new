@@ -1,33 +1,26 @@
 <template>
   <div>
-    <div class="h5 mb-3">Экскурсии</div>
-    <b-row>
-      <b-col cols="12" md="6" v-for="(item, index) in userTour" :key="index">
-        <tour-item :item="item" class="mb-4"></tour-item>
-      </b-col>
-    </b-row>
+    <div class="h5 mb-3">Обо мне</div>
+
+      <p class="user-profile__about mb-4">{{ user.about }}</p>
+
   </div>
 </template>
 
 <script>
-import TourItem from "@/components/Items/Tour";
-
 export default {
-    validate ({ params }) {
-        return /^\d+$/.test(params.id)  // Must be a number
-    },
+    props: ['user'],
 
-    components: {
-        TourItem
-    },
+    filters: {
+        truncate(string, value) {
+            let truncate = (string || '').substring(0, value);
 
-    asyncData({ store, route, error }) {
-        return store.$axios.get(`/front/user/${route.params.id}/excursions`).then(({ data }) => {
-            return { userTour: data.data }
-        }).catch((e) => {
-            return error({ statusCode: 404, message: 'Page not found' })
-        })
-    },
+            if( string && truncate ) {
+                if( string.length > truncate.length ) return truncate + '…'
+            }
+            return truncate;
+        }
+    }
 }
 </script>
 

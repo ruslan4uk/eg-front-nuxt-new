@@ -6,7 +6,7 @@
       <b-row class="align-items-center pb-3">
         <b-col cols="12" md="4" lg="3" class="justify-content-center">
 
-          <avatar circle="true" url="/profile/upload-avatar" :avatar="profile.avatar" @change="changeAvatar" />
+          <avatar circle="true" url="/profile/upload-avatar" :avatar="profile.avatar" @change="changeAvatar" class="d-flex justify-content-center" />
 
         </b-col>
 
@@ -91,7 +91,7 @@
                  v-if="profile.user_contact.length < 5"
                  @click="pushContact"
                   type="text"
-                class="d-block font-weight-bold">Добавить еще контакты</el-button>
+                class="d-block">Добавить еще контакты</el-button>
       <el-alert :title="errors.userContact" v-if="errors.userContact" type="error"></el-alert>
     </div>
 
