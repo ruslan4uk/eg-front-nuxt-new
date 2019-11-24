@@ -7,19 +7,18 @@
             <h1 class="main-top__title mb-4 mb-md-3">Все совершенно просто!</h1>
             <h3 class="main-top__subtitle mb-5">Выберите город и начните путешествие прямо сейчас</h3>
 
-            <el-form class="d-flex">
+            <el-form class="d-flex" :model="form">
               <el-form-item class="mb-0 w-100 position-relative">
                 <div class="position-absolute main-search-panel-icon">
                   <i class="el-icon-search"></i>
                 </div>
                 <el-select
+                  v-model="form.city_id"
                   filterable
                   remote
                   :remote-method="remoteSearch"
-                  reserve-keyword
                   class="w-100 main-search-panel"
                   :loading="citySearchLoading"
-                  v-model="form.city_id"
                   loading-text="Загрузка..."
                   no-data-text="Не найдено"
                   placeholder="Выберите город">
