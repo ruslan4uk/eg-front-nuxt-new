@@ -55,6 +55,7 @@ export default {
             if(isJPG && isLt10M) this.loadingAvatarUpload = true;
             return isJPG && isLt10M;
         },
+
     }
 }
 </script>

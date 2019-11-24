@@ -102,7 +102,7 @@
 import GuideLeftPanel from "@/components/Frontend/GuideLeftPanel";
 export default {
     validate ({ params }) {
-        return /^\d+$/.test(params.excursion)  // Must be a number
+        return /^\d+$/.test(params.id)  // Must be a number
     },
 
     components: {
@@ -110,7 +110,7 @@ export default {
     },
 
     asyncData({ store, route }) {
-        return store.$axios.get(`/front/excursion/${route.params.id}/${route.params.excursion}`).then(({ data }) => {
+        return store.$axios.get(`/front/excursion/${route.params.id}`).then(({ data }) => {
             return {
                 tour: data.data,
                 user: data.user,

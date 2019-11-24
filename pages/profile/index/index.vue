@@ -45,7 +45,7 @@
             :loading="citySearchLoading"
             loading-text="Загрузка..."
             no-data-text="Не найдено">
-            <el-option v-for="item in citySearch" :key="item.id" :label="item.name + ', ' + item.city_country" :value="item.id"></el-option>
+            <el-option v-for="item in citySearch" :key="item.city_id" :label="item.city_name + ', ' + item.country_name" :value="item.city_id"></el-option>
           </el-select>
         </el-form-item>
       </div>
@@ -177,7 +177,7 @@
         },
 
         mounted() {
-            this.citySearch = this.profile.user_city;
+            this.citySearch = this.profile.user_city2;
             this.citySearchLoading = false
         },
 

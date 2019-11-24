@@ -3,6 +3,10 @@
     <b-row class="align-items-center">
       <b-col cols="4" md="12">
         <el-image :src="user.avatar" fit="cover" class="mb-3 rounded25 shadow25 d-flex justify-items-center user-profile__avatar">
+          <div slot="error" class="w-100">
+            <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" class="w-100"/>
+          </div>
+
           <template slot="placeholder">
             <div class="d-flex justify-content-center image-loading w-100">
               <i class="el-icon-loading"></i>

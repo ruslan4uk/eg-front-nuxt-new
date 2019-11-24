@@ -31,7 +31,7 @@
               v-model="form.city_id"
               loading-text="Загрузка..."
               no-data-text="Не найдено">
-              <el-option v-for="item in citySearch" :key="item.id" :label="item.name + ', ' + item.city_country" :value="item.id"></el-option>
+              <el-option v-for="item in citySearch" :key="item.city_id" :label="item.city_name + ', ' + item.country_name" :value="item.city_id"></el-option>
             </el-select>
           </el-form-item>
 
