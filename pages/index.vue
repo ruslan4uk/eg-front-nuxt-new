@@ -21,7 +21,8 @@
                   :loading="citySearchLoading"
                   loading-text="Загрузка..."
                   no-data-text="Не найдено"
-                  placeholder="Выберите город">
+                  placeholder="Выберите город"
+                  @focus="selectFocus">
                   <el-option v-for="item in citySearch" :key="item.city_id" :label="item.city_name + ', ' + item.country_name"
                              :value="item.city_id"
                             @click.native="changeSearch(item)"></el-option>
@@ -97,6 +98,10 @@
 
             changeSearch(geo) {
                 this.$router.push({ name: 'country-country-city-city-excursion', params: { country: geo.country_id, city: geo.city_id } })
+            },
+
+            selectFocus(event) {
+                event.target.focus();
             }
         },
 
