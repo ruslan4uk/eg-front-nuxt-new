@@ -34,7 +34,7 @@ export default {
     middleware: ['confirmRedirect'],
 
     asyncData({ store, query }) {
-        return store.$axios.post('/auth/confirm', { email: query.email, hash: query.hash }).then( () => {
+        return store.$axios.post('/auth/confirm', { mail: query.mail, hash: query.hash }).then( () => {
             return { confirm: true }
         }).catch( () => {
             return { confirm: false }
