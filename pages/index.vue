@@ -113,25 +113,6 @@
                 this.$router.push({ name: 'country-country-city-city-excursion', params: { country: geo.country_id, city: geo.city_id } })
             },
 
-            selectFocus(event) {
-                console.log(event);
-                event.target.removeAttribute('readonly');
-                setTimeout(() => {
-
-                    event.target.focus();
-                    const el = document.querySelector('.main-top .el-input__inner');
-                    el.removeAttribute('readonly');
-                    el.select();
-                    console.log(el)
-
-                }, 100)
-                // event.target.removeAttribute('readonly');
-                // setTimeout(() => {
-                //     event.target.removeAttribute('readonly');
-                //     event.target.setAttribute('autofocus', 'autofocus');
-                //     event.target.focus().click();
-                // }, 100);
-            }
         },
 
     }
