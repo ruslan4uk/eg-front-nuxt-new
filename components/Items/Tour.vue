@@ -1,12 +1,12 @@
 <template>
-  <div class="tour-card d-block" :alt="item.name">
+  <div class="tour-card d-block position-relative" :alt="item.name">
+    <favorite type="tour" :id="item.id"></favorite>
     <nuxt-link :to="{ name: 'excursion-id', params: { id: item.id } }">
       <div class="tour-card__image">
+
         <el-image :src="item.avatar" class="tour-profile-list__avatar" lazy>
           <template slot="placeholder">
-            <div class="d-flex justify-content-center image-loading w-100">
-              <i class="el-icon-loading"></i>
-            </div>
+            <div class="d-flex justify-content-center image-loading w-100"></div>
           </template>
         </el-image>
       </div>
@@ -50,8 +50,13 @@
 </template>
 
 <script>
+    import Favorite from '@/components/Favorite.vue'
     export default {
         props: ['item'],
+
+        components: {
+            Favorite
+        },
 
         filters: {
             truncate(string, value) {

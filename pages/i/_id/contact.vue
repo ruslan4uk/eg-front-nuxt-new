@@ -35,6 +35,12 @@
 
 <script>
 export default {
-    props: ['user']
+    props: ['user'],
+
+    head() {
+        return {
+            title: 'Контакты гида ' + this.user.name + ' — Excursguide'
+        }
+    },
 }
 </script>

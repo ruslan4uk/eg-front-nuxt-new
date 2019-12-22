@@ -25,6 +25,10 @@
               </span>
         </div>
       </b-col>
+
+      <b-col cols="12">
+        <new-message :touser="user" class="user-profile__avatar" v-if="$auth.user && ($auth.user.id !== user.id)"></new-message>
+      </b-col>
     </b-row>
 
 <!--    <el-divider class="d-md-none mb-4"></el-divider>-->
@@ -75,8 +79,14 @@
 </template>
 
 <script>
+import NewMessage from '@/components/Messenger/NewMessage'
+
 export default {
-    props: ['user']
+    props: ['user'],
+
+    components: {
+      NewMessage
+    },
 }
 </script>
 

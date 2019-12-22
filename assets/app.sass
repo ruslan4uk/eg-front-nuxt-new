@@ -131,6 +131,10 @@ img
     text-decoration: none
 
 // Element ui fix
+.el-select
+  & input
+    cursor: pointer !important
+
 .el-form-item__content
   line-height: 1rem !important
 
@@ -154,6 +158,12 @@ img
   display: inline-block
   width: 420px
   max-width: calc(100% - 2rem)
+
+.el-breadcrumb
+  & span a
+    font-weight: 400 !important
+    &:hover
+      text-decoration: underline
 
 // Multi uploader
 
@@ -203,3 +213,19 @@ img
   font-size: 1.5rem
   z-index: 3
   color: #777777
+
+
+
+// Message sender
+.messenger-sender
+  padding: 0.75rem 1.5rem 0
+  background-color: #f9f9f9
+  &__btn
+    position: absolute
+    top: 0.5rem
+    right: 0.75rem
+    font-size: 1rem
+    cursor: pointer
+    color: #405089
+  &__input input
+    padding-left: 2rem

@@ -21,8 +21,7 @@
                   :loading="citySearchLoading"
                   loading-text="Загрузка..."
                   no-data-text="Не найдено"
-                  placeholder="Выберите город"
-                  @focus="selectFocus">
+                  placeholder="Выберите город">
                   <el-option v-for="item in citySearch" :key="item.city_id" :label="item.city_name + ', ' + item.country_name"
                              :value="item.city_id"
                             @click.native="changeSearch(item)"></el-option>
@@ -33,6 +32,7 @@
         </b-row>
       </b-container>
     </section>
+
 
     <section class="main-last mt-5">
       <b-container>
@@ -53,12 +53,25 @@
 </template>
 
 <script>
+  import SelectUi from "@/components/SelectUi";
     import TourItem from "@/components/Items/Tour";
 
     export default {
+        head() {
+            return {
+                title: 'Excursguide - найти экскурсию и гида - легко!',
+                meta: [{
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Собрались отправиться в отпуск? Хочется приключений? Начните свое путешествие прямо сейчас. Просто выберете интересующий вас город в поиске и отправляйтесь в тур по гидам, найдя самую интересную экскурсию, которая сделает ваш отдых еще более увлекательным'
+                }],
+            }
+        },
+
         layout: 'main',
 
         components: {
+            SelectUi,
             TourItem
         },
 
@@ -101,7 +114,23 @@
             },
 
             selectFocus(event) {
-                event.target.focus();
+                console.log(event);
+                event.target.removeAttribute('readonly');
+                setTimeout(() => {
+
+                    event.target.focus();
+                    const el = document.querySelector('.main-top .el-input__inner');
+                    el.removeAttribute('readonly');
+                    el.select();
+                    console.log(el)
+
+                }, 100)
+                // event.target.removeAttribute('readonly');
+                // setTimeout(() => {
+                //     event.target.removeAttribute('readonly');
+                //     event.target.setAttribute('autofocus', 'autofocus');
+                //     event.target.focus().click();
+                // }, 100);
             }
         },
 

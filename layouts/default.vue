@@ -6,7 +6,7 @@
 
     <nuxt />
 
-    <Footer />
+    <Footer v-if="($route.name !== 'profile-index-messenger') && ($route.name !== 'profile-index-messenger-index-id')" />
   </div>
 </template>
 

@@ -36,7 +36,20 @@
       </b-navbar-nav>
 
       <!-- is Auth -->
-      <b-navbar-nav class="ml-auto" v-if="$auth.loggedIn">
+      <b-navbar-nav class="ml-auto d-flex align-items-center flex-row" v-if="$auth.loggedIn">
+
+        <nuxtLink :to="{ name: 'profile-index-messenger' }">
+          <el-badge v-if="$auth.user && initUnread" :value="initUnread" :max="99" class="item mr-4 navigation__favorite-badge">
+            <i class="far fa-envelope"></i>
+          </el-badge>
+        </nuxtLink>
+
+        <nuxtLink :to="{ name: 'profile-index-favorite' }">
+          <el-badge v-if="$auth.user && $auth.user.favorite_tour" :value="$auth.user.favorite_tour.length" :max="99" class="item mr-4 navigation__favorite-badge">
+            <i class="far fa-heart"></i>
+          </el-badge>
+        </nuxtLink>
+
         <el-dropdown trigger="click" class="navigation-user">
               <span class="el-dropdown-link d-flex align-items-center">
                 <span class="mr-2 navigation-user__name">{{ $auth.user.name }}</span>
@@ -45,13 +58,17 @@
                 </el-avatar>
               </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Настройка профиля
-            </el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Настройка профиля</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'i-id', params: { id: $auth.user.id } })">Мой профиль</el-dropdown-item>
+
 
             <el-dropdown-item divided @click.native="$router.push({ name: 'profile-index-change-password'})">Сменить
               пароль
             </el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push({ name: 'profile-index-messenger'})">Мессенджер
+            <el-dropdown-item @click.native="$router.push({ name: 'profile-index-messenger'})">Мессенджер</el-dropdown-item>
+
+            <el-dropdown-item @click.native="$router.push({ name: 'profile-index-favorite' })">
+              Избранное <span v-if="$auth.user && $auth.user.favorite_tour">({{ $auth.user.favorite_tour.length }})</span>
             </el-dropdown-item>
 
             <el-dropdown-item divided @click.native="handleCreateTour"
@@ -124,6 +141,15 @@
         background-color: #ffffff
         margin: 6px 0
         width: 2rem
+
+    &__favorite-badge
+      transition: all ease 0.25s
+      &:hover
+        opacity: 0.75
+      & i
+        color: #ffffff
+        font-size: 1.25rem
+        margin-right: 0.25rem
 
   .navbar-dark .navbar-nav .nav-link
     color: #ffffff

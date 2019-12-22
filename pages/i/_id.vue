@@ -68,6 +68,12 @@ export default {
         return /^\d+$/.test(params.id)  // Must be a number
     },
 
+    head() {
+        return {
+            title: 'Гид ' + this.user.name + ' — Excursguide гид Москва'
+        }
+    },
+
     components: {
         GuideLeftPanel
     },

@@ -15,6 +15,7 @@ const User = {
           initPriceType: 'init/price_type',
           initService: 'init/service',
           initTiming: 'init/timing',
+          initUnread: 'messenger/unread',
         })
       }
     })

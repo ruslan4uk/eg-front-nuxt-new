@@ -13,8 +13,15 @@
 import TourItem from "@/components/Items/Tour";
 
 export default {
+    props: ['user'],
     validate ({ params }) {
         return /^\d+$/.test(params.id)  // Must be a number
+    },
+
+    head() {
+        return {
+            title: 'Экскурсии гида ' + this.user.name + ' — Excursguide'
+        }
     },
 
     components: {

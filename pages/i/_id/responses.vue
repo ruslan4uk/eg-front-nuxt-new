@@ -35,7 +35,15 @@
     </b-row>
 
     <div class="h6 pt-4 mb-3">Добавить свой отзыв о гиде</div>
-    <b-row>
+
+    <el-alert
+      title="Что бы написать отзыв Вам необходимо авторизоваться"
+      type="warning"
+      :closable="false"
+      v-if="!$auth.loggedIn">
+    </el-alert>
+
+    <b-row v-if="$auth.loggedIn">
       <b-col cols="12">
         <el-form :model="form" :rules="rules" ref="reviewForm">
           <el-form-item prop="review">
@@ -60,6 +68,12 @@
 <script>
 export default {
     props: ['user'],
+
+    head() {
+        return {
+            title: 'Отзывы о гиде ' + this.user.name + ' — Excursguide гид Москва'
+        }
+    },
 
     asyncData({ store, route, error }) {
         return store.$axios.get(`/front/user/${route.params.id}/responses`).then(({ data }) => {

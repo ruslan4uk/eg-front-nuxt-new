@@ -14,6 +14,7 @@ export default function({ $axios, store, app, redirect }) {
         store.dispatch('validation/setErrors', error.response.data.errors);
         break;
       default:
+        break;
     }
     return Promise.reject(error)
   });

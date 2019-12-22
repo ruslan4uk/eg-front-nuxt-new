@@ -5,11 +5,33 @@
 
     <b-container class="footer-fix mt-5">
       <b-row>
+        <b-col cols="12" class="mb-3">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item><nuxtLink :to="{ name: 'index' }">Главная</nuxtLink></el-breadcrumb-item>
+            <el-breadcrumb-item>
+              <nuxtLink :to="{ name: 'country-country', params: { country: pageCity['0'].country_id } }">{{ pageCity['0'].country_name }}</nuxtLink>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>
+              <nuxtLink :to="{ name: 'country-country-city-city-excursion', params: { country: pageCity['0'].country_id, city: pageCity['0'].city_id } }">{{ pageCity['0'].city_name }}</nuxtLink>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>Экскурсии</el-breadcrumb-item>
+          </el-breadcrumb>
+        </b-col>
+
         <b-col cols="12">
           <div class="card-title mb-4">Экскурсии в городе {{ pageCity[0].city_name }}</div>
         </b-col>
         <b-col cols="12" md="6" lg="4" v-for="(tour, index) in tours.data" :key="index">
           <tour-item :item="tour" class="mb-4"></tour-item>
+        </b-col>
+
+
+        <b-col v-if="tours.data && tours.data.length === 0">
+          <el-alert
+            title="Ничего не найдено"
+            type="warning"
+            :closable="false">
+          </el-alert>
         </b-col>
 
         <b-col cols="12" class="d-flex justify-content-center">
@@ -37,6 +59,12 @@
     export default {
         validate({params}) {
             return /^\d+$/.test(params.city)
+        },
+
+        head() {
+            return {
+                title: 'Экскурсии в городе ' + this.pageCity[0].city_name + ' цены и описания — «Еxcursguide экускурсии ' + this.pageCity[0].city_name + '»'
+            }
         },
 
         watchQuery: true,

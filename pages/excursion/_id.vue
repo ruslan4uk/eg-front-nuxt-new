@@ -7,8 +7,8 @@
       <b-col class="12" md="9">
 
         <div class="mb-2 rounded25 shadow-md-25 p-md-4 mb-4">
-          <div class="tour-info">
-
+          <div class="tour-info position-relative">
+            <favorite type="tour" :id="tour.id"></favorite>
             <b-carousel
               :interval="4000"
               controls
@@ -100,13 +100,21 @@
 
 <script>
 import GuideLeftPanel from "@/components/Frontend/GuideLeftPanel";
+import Favorite from "@/components/Favorite";
 export default {
     validate ({ params }) {
         return /^\d+$/.test(params.id)  // Must be a number
     },
 
+    head() {
+        return {
+            title: 'Экскурсия частного гида: "' + this.tour.name + '" город ' + this.tour.tour_city_new[0].name + ' — «Еxcursguide ' + this.tour.tour_city_new[0].name + '»'
+        }
+    },
+
     components: {
-        GuideLeftPanel
+        GuideLeftPanel,
+        Favorite
     },
 
     asyncData({ store, route }) {

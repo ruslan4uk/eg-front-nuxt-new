@@ -5,9 +5,24 @@
 
     <b-container class="footer-fix mt-5">
       <b-row>
+        <b-col cols="12" class="mb-3">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item><nuxtLink :to="{ name: 'index' }">Главная</nuxtLink></el-breadcrumb-item>
+            <el-breadcrumb-item>
+              <nuxtLink :to="{ name: 'country-country', params: { country: pageCity['0'].country_id } }">{{ pageCity['0'].country_name }}</nuxtLink>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>
+              <nuxtLink :to="{ name: 'country-country-city-city-excursion', params: { country: pageCity['0'].country_id, city: pageCity['0'].city_id } }">{{ pageCity['0'].city_name }}</nuxtLink>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>Гиды</el-breadcrumb-item>
+          </el-breadcrumb>
+        </b-col>
+
         <b-col cols="12">
           <div class="card-title mb-4">Частные гиды в городе {{ pageCity[0].city_name }}</div>
         </b-col>
+
+
 
         <b-col cols="12" md="6" v-for="(guide, index) in guides.data" :key="index" class="mb-5">
           <nuxt-link :to="{ name: 'i-id-excursion', params: { id: guide.id } }" class="catalog-guides__item d-flex">
@@ -43,6 +58,14 @@
 
         </b-col>
 
+        <b-col cols="12" v-if="guides.data && guides.data.length === 0">
+          <el-alert
+            title="Ничего не найдено"
+            type="warning"
+            :closable="false">
+          </el-alert>
+        </b-col>
+
       </b-row>
     </b-container>
   </section>
@@ -54,6 +77,12 @@
     export default {
         components: {
             CatalogFilter,
+        },
+
+        head() {
+            return {
+                title: 'Экскурсионный гид город ' + this.pageCity[0].city_name + ' услуги, цены — «Еxcursguide гиды ' + this.pageCity[0].city_name + '»'
+            }
         },
 
         async asyncData({store, params, query}) {

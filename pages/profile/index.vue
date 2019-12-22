@@ -8,6 +8,9 @@
             <li><nuxt-link :to="{ name: 'profile-index' }" exact >Настроки профиля</nuxt-link></li>
             <li><nuxt-link :to="{ name: 'profile-index-change-password' }" exact >Сменить пароль</nuxt-link></li>
             <li><nuxt-link :to="{ name: 'profile-index-messenger' }" exact >Мессенджер</nuxt-link></li>
+            <li><nuxt-link :to="{ name: 'profile-index-favorite' }" exact >
+              Избранное <span v-if="$auth.user && $auth.user.favorite_tour">({{ $auth.user.favorite_tour.length }})</span>
+            </nuxt-link></li>
           </ul>
         </div>
 
@@ -31,7 +34,16 @@
 
 <script>
 export default {
+    head() {
+        return {
+            title: 'Настройка профиля - ExcursGuide'
+        }
+    },
+
     scrollToTop: true,
+
+    middleware: ['auth'],
+
     methods: {
         handleCreateTour() {
             this.$axios.get('/profile/tours/create').then( ({ data }) => {
