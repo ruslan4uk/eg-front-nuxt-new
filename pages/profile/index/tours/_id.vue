@@ -259,10 +259,12 @@ export default {
         }
     },
 
-    async asyncData( { store, route } ) {
+    async asyncData( { store, route, error } ) {
         return store.$axios.get(`/profile/tours/${route.params.id}`).then( ({ data }) => {
             return { form: data.data }
-        } )
+        }).catch(e => {
+          error({ statusCode: 404 });
+        });
     },
 
     methods: {

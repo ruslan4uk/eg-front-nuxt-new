@@ -117,13 +117,15 @@ export default {
         Favorite
     },
 
-    asyncData({ store, route }) {
+    asyncData({ store, route, error }) {
         return store.$axios.get(`/front/excursion/${route.params.id}`).then(({ data }) => {
             return {
                 tour: data.data,
                 user: data.user,
             }
-        })
+        }).catch(e => {
+          error({ statusCode: 404 });
+        });
     },
 }
 </script>

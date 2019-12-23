@@ -34,17 +34,16 @@ export default {
 
   watchQuery: true,
 
-
-
   validate({params}) {
     return /^\d+$/.test(params.country)
   },
 
-  asyncData({store, query, params}) {
-    console.log(query);
+  asyncData({store, query, params, error}) {
     return store.$axios.get(`search/city-list/${params.country}?page=${query.page}`).then( ({ data }) => {
       return { cities: data.data }
-    } )
+    }).catch(e => {
+      error({ statusCode: 404 });
+    });
   },
 
   methods: {

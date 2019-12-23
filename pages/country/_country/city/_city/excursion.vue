@@ -74,11 +74,15 @@
             TourItem
         },
 
-        async asyncData({store, params, query}) {
+        async asyncData({store, params, query, error}) {
             let url_query = Object.entries(query).map(([key, val]) => `${key}=${val}`).join('&');
 
             const {data} = await store.$axios.get(`/front/get/tour/${params.country}/${params.city}?${url_query}`);
             const city = await store.$axios.get(`search/city?sel=${params.city}`);
+
+            if(city.data.data.length < 1) {
+              error({ statusCode: 404 });
+            }
 
             return {tours: data.data, pageCity: city.data.data}
         },

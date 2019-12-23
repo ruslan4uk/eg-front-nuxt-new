@@ -32,7 +32,7 @@ export default {
         return store.$axios.get(`/front/user/${route.params.id}/excursions`).then(({ data }) => {
             return { userTour: data.data }
         }).catch((e) => {
-            return error({ statusCode: 404, message: 'Page not found' })
+            return error({ statusCode: 404 })
         })
     },
 }

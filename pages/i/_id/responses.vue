@@ -79,7 +79,7 @@ export default {
         return store.$axios.get(`/front/user/${route.params.id}/responses`).then(({ data }) => {
             return { responses: data.data }
         }).catch((e) => {
-            return error({ statusCode: 404, message: 'Page not found' })
+            return error({ statusCode: 404 })
         })
     },
 
