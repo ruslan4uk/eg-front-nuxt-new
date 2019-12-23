@@ -19,7 +19,7 @@ export default {
       { name: 'google-site-verification', content: 'Jrlf7j1xzEEYlhh8m_Og-nz5Q2Q2zJ_Wch1oqOJCIk4' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: '/fav_64x64.png' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css' }
     ]
   },
