@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="catalog-guides__count">
-                  {{ guide.tour_count }}
+                  {{ guide.user_comment_count }}
                   <div>{{ declOfNum(guide.user_comment_count, ['отзыв', 'отзыва', 'отзывов']) }}</div>
                 </div>
               </div>

@@ -10,13 +10,14 @@
           <div class="tour-info position-relative">
             <favorite type="tour" :id="tour.id"></favorite>
             <b-carousel
+              img-height="480"
               :interval="4000"
               controls
               indicators
               fade
               background="#ababab"
               class="mb-4 rounded25">
-              <b-carousel-slide :img-src="image.image" v-for="(image, index) in tour.tour_image" :key="index"></b-carousel-slide>
+              <b-carousel-slide :img-src="image.image" img-height="480" v-for="(image, index) in tour.tour_image" :key="index"></b-carousel-slide>
             </b-carousel>
 
             <div class="h5 mb-4">Экскурсия "{{ tour.name }}"</div>
