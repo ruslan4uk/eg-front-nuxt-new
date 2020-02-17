@@ -14,6 +14,7 @@
           </ul>
         </div>
 
+        <!-- Guide tour list and new tour -->
         <div v-if="$auth.user.role === null || $auth.user.role === 'guide'">
           <h6 class="mb-3">Экскурсии</h6>
           <div class="left-navigation mb-4">
@@ -23,6 +24,7 @@
             </ul>
           </div>
         </div>
+
       </b-col>
 
       <b-col cols="12" md="8" lg="9">

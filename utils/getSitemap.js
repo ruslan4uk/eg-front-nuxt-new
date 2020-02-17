@@ -8,9 +8,11 @@ export default async function() {
 
             let route_tour = res.data.tours.map(x => '/excursion/' + x.id);
 
-            let route_guide = res.data.tours.map(x => '/i/' + x.user_id + '/excursion');
+            let route_guide = res.data.tours.map(x => '/i/' + x.user_id);
+            let route_excursion = res.data.tours.map(x => '/i/' + x.user_id + '/excursion');
+            let route_responses = res.data.tours.map(x => '/i/' + x.user_id + '/responses');
+            let route_contact = res.data.tours.map(x => '/i/' + x.user_id + '/contact');
 
-            return route.concat(route_tour, route_guide)
+            return route.concat(route_tour, route_guide, route_excursion, route_responses, route_contact)
         })
-
 };

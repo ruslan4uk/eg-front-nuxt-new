@@ -5,19 +5,21 @@ export default function({ $axios, store, app, redirect, error }) {
     return response;
 
   }, responseError => {
-    switch (responseError.response.status) {
-      case 401:
-        store.$auth.reset();
-        store.$auth.logout();
-        break;
-      case 422:
-        store.dispatch('validation/setErrors', responseError.response.data.errors);
-        break;
-      // case 404:
-      //   error({ statusCode: 404, message: 'Post not found from interceptor' });
-      //   break;
-      default:
-        break;
+    if(responseError.response && responseError.response.status) {
+      switch (responseError.response.status) {
+        case 401:
+          store.$auth.reset();
+          store.$auth.logout();
+          break;
+        case 422:
+          store.dispatch('validation/setErrors', responseError.response.data.errors);
+          break;
+        // case 404:
+        //   error({ statusCode: 404, message: 'Post not found from interceptor' });
+        //   break;
+        default:
+          break;
+      }
     }
     return Promise.reject(responseError)
   });

@@ -1,9 +1,25 @@
 <template>
   <div>
     <div class="h5 mb-3">Экскурсии</div>
+
     <b-row>
-      <b-col cols="12" md="6" v-for="(item, index) in userTour" :key="index">
-        <tour-item :item="item" class="mb-4"></tour-item>
+    <b-col cols="12">
+        <el-alert
+          v-if="userTour.length === 0"
+          :closable="false"
+          show-icon
+          title="У гида еще нет экскурсий!"
+          type="info"
+          class="">
+        </el-alert>
+      </b-col>
+
+      <b-col cols="12" v-if="userTour.length > 0">
+        <b-row>
+          <b-col cols="12" md="6" v-for="(item, index) in userTour" :key="index">
+            <tour-item :item="item" class="mb-4"></tour-item>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
   </div>

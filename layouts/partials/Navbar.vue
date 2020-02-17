@@ -59,8 +59,7 @@
               </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Настройка профиля</el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push({ name: 'i-id', params: { id: $auth.user.id } })">Мой профиль</el-dropdown-item>
-
+            <el-dropdown-item @click.native="$router.push({ name: 'i-id', params: { id: $auth.user.id } })" v-if="$auth.user && ($auth.user.active > 1)">Мой профиль</el-dropdown-item>
 
             <el-dropdown-item divided @click.native="$router.push({ name: 'profile-index-change-password'})">Сменить
               пароль

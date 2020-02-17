@@ -28,7 +28,7 @@
             </el-form-item>
 
             <el-form-item prop="role" class="mb-2">
-              <el-radio-group v-model="form.role" size="medium" class="auth__radio">
+              <el-radio-group v-model="form.role" size="medium" class="el-radio-group el-radio-group--full-width">
                 <el-radio-button label="guide">Я гид</el-radio-button>
                 <el-radio-button label="tourist">Я турист</el-radio-button>
               </el-radio-group>

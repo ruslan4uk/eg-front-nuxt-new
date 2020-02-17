@@ -1,9 +1,13 @@
-// Colors
-// #ff7555 - Orange
-// #405089 - Blue
-// #585f76 - Text
+// Colors variable
+$orange: #ff7555
+$blue: #405089
+$text: #585f76
 
-// //@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap&subset=cyrillic')
+// Breakpoints variable
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext')
 
@@ -117,12 +121,12 @@ img
     font-size: 1rem
     font-weight: 300
     color: #585f76
-  &__radio
-    display: flex !important
-    width: 100%
-    & label, & span
-      width: 100%
-      display: block
+  //&__radio
+  //  display: flex !important
+  //  width: 100%
+  //  & label, & span
+  //    width: 100%
+  //    display: block
   &__confirm-btn
     color: #405089 !important
     font-weight: 600
@@ -229,3 +233,11 @@ img
     color: #405089
   &__input input
     padding-left: 2rem
+
+
+// import element custom style
+@import "sass/element-io/all"
+
+// import sass component
+@import "sass/tour/tour-info"
+@import "sass/order"
