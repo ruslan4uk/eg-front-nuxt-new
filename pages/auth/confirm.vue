@@ -35,6 +35,7 @@ export default {
 
     asyncData({ store, query }) {
         return store.$axios.post('/auth/confirm', { mail: query.mail, hash: query.hash }).then( () => {
+            store.$auth.fetchUser();
             return { confirm: true }
         }).catch( () => {
             return { confirm: false }
