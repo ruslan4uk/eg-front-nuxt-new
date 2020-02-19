@@ -62,6 +62,11 @@
           if (valid) {
             this.$axios.post('/front/callback', this.form).then(({ data }) => {
               this.$notify({ title: 'Отлично!', message: 'Сообщение успешно отправлено!', type: 'success', duration: 5000 });
+              this.form = {
+                name: '',
+                email: '',
+                comment: '',
+              }
             }).catch(e => {
               this.$notify({ title: 'Ошибка!', message: ':(', type: 'error', duration: 5000 });
             })
