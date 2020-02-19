@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="footer-fix align-items-center">
         <b-col cols="12" md="8" lg="6" class="my-4">
-          <img src="~assets/images/login.png" alt="">
+          <img src="~assets/images/login_new.png" alt="">
         </b-col>
 
         <b-col cols="12" md="4" lg="5" class="ml-lg-auto my-4">
@@ -73,8 +73,6 @@ export default {
         },
 
         sendConfirmEmail() {
-            // if(this.form.email) { return false}
-
             this.$axios.post('/auth/confirm-send', { email: this.form.email }).then( () => {
                 this.$notify({ title: 'Отлично!', message: 'Письмо с подтверждением отправлено на почту!', type: 'success', duration: 5000 });
             }).catch( () => {

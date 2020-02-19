@@ -267,7 +267,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$axios.post(`/front/orders/${this.$route.params.id}`, this.form).then((res) => {
-            this.$router.push({ name: 'order-id-confirm', params: { id: this.$route.params.id } })
+            // this.$router.push({ name: 'order-id-confirm', params: { id: this.$route.params.id } })
           }).catch(err => {
             this.$notify({ title: 'Ошибка!', message: 'Ошибка! Попробуйте позже!', type: 'error', duration: 5000 });
           })

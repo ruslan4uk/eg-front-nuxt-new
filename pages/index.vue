@@ -121,40 +121,6 @@
 </script>
 
 <style scoped lang="sass">
-  .main-top
-    padding: 12rem 0 9rem
-    color: #ffffff
-    min-height: 70vh
-    background-image: url(~assets/images/main-bg2.jpg)
-    background-position: center center
-    background-size: cover
-    display: flex
-    align-items: center
-
-    &__title
-      font-size: 2.75rem
-      font-weight: 500
-      line-height: 1
-      color: #ffffff
-
-    &__subtitle
-      font-size: 1rem
-      color: #ffffff
-
-    & .el-input__inner
-      font-size: 1.25rem !important
-      height: auto
-      padding: 0.5rem 1rem
-
-    .main-prefooter
-      &__title
-        color: #585f76
-        font-size: 1.75rem
-
-      &__text
-        font-weight: 300
-        color: #585f76
-
 
 </style>
 

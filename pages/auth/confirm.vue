@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="footer-fix align-items-center">
         <b-col cols="12" md="8" lg="6" class="my-4">
-          <img src="~assets/images/confirm.png" alt="">
+          <img src="~assets/images/confirm_new.png" alt="">
         </b-col>
 
         <b-col cols="12" lg="6" class="mb-5" v-if="$route.query.type === 'register'">

@@ -4,8 +4,8 @@
       <b-navbar-brand href="" :to="{ name: 'index' }" class="logo">EG</b-navbar-brand>
 
       <b-navbar-nav class="ml-4">
-        <b-nav-item href="#" class="navigation__link d-none d-md-block">О нас</b-nav-item>
-        <b-nav-item href="#" class="navigation__link d-none d-md-block">Обратная связь</b-nav-item>
+        <b-nav-item :to="{ name: 'about' }" class="navigation__link d-none d-md-block">О нас</b-nav-item>
+        <b-nav-item :to="{ name: 'callback' }" class="navigation__link d-none d-md-block">Обратная связь</b-nav-item>
       </b-navbar-nav>
 
       <!-- is not Auth -->
@@ -29,7 +29,9 @@
                 </div>
               </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push({ name: 'auth-login'})">Вход</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'about' })">О нас</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'callback' })">Обратная связь</el-dropdown-item>
+            <el-dropdown-item divided @click.native="$router.push({ name: 'auth-login'})">Вход</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push({ name: 'auth-register'})">Регистрация</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -51,12 +53,13 @@
         </nuxtLink>
 
         <el-dropdown trigger="click" class="navigation-user">
-              <span class="el-dropdown-link d-flex align-items-center">
-                <span class="mr-2 navigation-user__name">{{ $auth.user.name }}</span>
-                <el-avatar :src="$auth.user.avatar" shape="circle" :size="48">
-                  <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
-                </el-avatar>
-              </span>
+          <span class="el-dropdown-link d-flex align-items-center">
+            <span class="mr-2 navigation-user__name">{{ $auth.user.name }}</span>
+            <el-avatar :src="$auth.user.avatar" shape="circle" :size="48">
+              <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+            </el-avatar>
+          </span>
+
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({ name: 'profile-index'})">Настройка профиля</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push({ name: 'i-id', params: { id: $auth.user.id } })" v-if="$auth.user && ($auth.user.active > 1)">Мой профиль</el-dropdown-item>
@@ -76,6 +79,9 @@
             <el-dropdown-item @click.native="$router.push({ name: 'profile-index-tours'})"
                               v-if="$auth.user.role === null || $auth.user.role === 'guide'">Список экскурсий
             </el-dropdown-item>
+
+            <el-dropdown-item divided @click.native="$router.push({ name: 'about' })">О нас</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'callback' })">Обратная связь</el-dropdown-item>
 
             <el-dropdown-item divided @click.native="logout">Выход</el-dropdown-item>
           </el-dropdown-menu>
@@ -108,7 +114,7 @@
 
             handleScroll () {
                 if (process.browser) {
-                    this.isBlue = !(window.scrollY < 100 && this.$route.name === 'index');
+                    this.isBlue = !(window.scrollY < 100 && (this.$route.name === 'index' || this.$route.name === 'about'));
                 }
             },
         },
