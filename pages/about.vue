@@ -133,7 +133,20 @@
 
 <script>
   export default {
-    layout: 'main'
+    layout: 'main',
+
+    head() {
+      return {
+        title: 'Excursguide - О нас!',
+        meta: [{
+          name: 'description',
+          content: 'Собрались отправиться в отпуск? Хочется приключений? Начните свое путешествие прямо сейчас. Просто выберете интересующий вас город в поиске и отправляйтесь в тур по гидам, найдя самую интересную экскурсию'
+        }, {
+          name: 'keywords',
+          content: 'Гиды, туры, excursguide, excursguide.ru, отправится в путешествие'
+        }],
+      }
+    },
   }
 </script>
 

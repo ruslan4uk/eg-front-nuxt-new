@@ -146,7 +146,7 @@
     </div>
 
     <div class="shadow-md-25 rounded25 p-md-4 mb-4">
-      <div class="card-title mb-0">Расскажите туристам о себе</div>
+      <div class="card-title mb-0">Расскажите туристам о экскурсии'</div>
       <div class="card-title-small mb-3">не использовать тексты с других сайтов. Проверить уникальность текста <a href="http://text.ru" target="_blank">text.ru</a></div>
       <el-form-item prop="about">
         <el-input type="textarea" :rows="12" class="w-100 rounded25" v-model="form.about"></el-input>

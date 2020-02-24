@@ -1,0 +1,76 @@
+// faq component
+.faq
+  padding: 12rem 0 9rem
+  color: #ffffff
+  background-image: url(~assets/images/faq_1.jpg)
+  background-position: center center
+  background-size: cover
+  display: flex
+  align-items: center
+  position: relative
+  &:after
+    content: ' '
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,.25)
+  &__title
+    font-size: 2.25rem
+    font-weight: 500
+    line-height: 1.3
+    color: #ffffff
+    position: relative
+    z-index: 2
+  &__subtitle
+    font-size: 1rem
+    color: #ffffff
+
+
+
+
+// faq navigation
+.faq-navigation
+  &__row
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 5rem
+  &__item
+    flex: 0 0 100%
+    display: block
+    color: $text
+    transition: all ease 0.25s
+    padding: 2rem 1rem 1rem
+    @media screen and (min-width: $md)
+      padding: 2rem 3rem
+      flex: 0 0 50%
+    &:hover
+      color: $text
+      background-color: #f3f3f3
+      text-decoration: none
+
+  & .h5
+    color: $blue
+    font-size: 1.125rem
+
+  &__title
+    font-size: 1.5rem
+    color: #444444
+    font-weight: 500
+    padding: 2rem 1rem 1rem
+    @media screen and (min-width: $md)
+      padding: 1rem 3rem
+
+
+
+// faq content
+.faq-content
+  & ol, & ul
+    padding-left: 1.5rem
+  & p, & li
+    color: #444444
+    font-weight: 300
+    font-size: 1rem
+  & li
+    margin-bottom: 0.5rem

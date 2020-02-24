@@ -34,6 +34,19 @@
 
 <script>
   export default {
+    head() {
+      return {
+        title: 'Excursguide - Обратная связь',
+        meta: [{
+          name: 'description',
+          content: 'Собрались отправиться в отпуск? Хочется приключений? Начните свое путешествие прямо сейчас. Просто выберете интересующий вас город в поиске и отправляйтесь в тур по гидам, найдя самую интересную экскурсию'
+        }, {
+          name: 'keywords',
+          content: 'Гиды, туры, excursguide, excursguide.ru, отправится в путешествие'
+        }],
+      }
+    },
+
     data() {
       return {
         rules: {

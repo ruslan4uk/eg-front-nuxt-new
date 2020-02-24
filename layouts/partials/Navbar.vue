@@ -6,6 +6,7 @@
       <b-navbar-nav class="ml-4">
         <b-nav-item :to="{ name: 'about' }" class="navigation__link d-none d-md-block">О нас</b-nav-item>
         <b-nav-item :to="{ name: 'callback' }" class="navigation__link d-none d-md-block">Обратная связь</b-nav-item>
+        <b-nav-item :to="{ name: 'faq' }" class="navigation__link d-none d-md-block">Информация</b-nav-item>
       </b-navbar-nav>
 
       <!-- is not Auth -->
@@ -30,6 +31,7 @@
               </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({ name: 'about' })">О нас</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'faq' })">Информация</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push({ name: 'callback' })">Обратная связь</el-dropdown-item>
             <el-dropdown-item divided @click.native="$router.push({ name: 'auth-login'})">Вход</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push({ name: 'auth-register'})">Регистрация</el-dropdown-item>
@@ -82,6 +84,7 @@
 
             <el-dropdown-item divided @click.native="$router.push({ name: 'about' })">О нас</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push({ name: 'callback' })">Обратная связь</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({ name: 'faq' })">Информация</el-dropdown-item>
 
             <el-dropdown-item divided @click.native="logout">Выход</el-dropdown-item>
           </el-dropdown-menu>
@@ -114,7 +117,8 @@
 
             handleScroll () {
                 if (process.browser) {
-                    this.isBlue = !(window.scrollY < 100 && (this.$route.name === 'index' || this.$route.name === 'about'));
+                    // this.isBlue = !(window.scrollY < 100 && (this.$route.name === 'index' || this.$route.name === 'about'));
+                    this.isBlue = !(window.scrollY < 100 && (this.$nuxt.$data.layoutName === 'main'));
                 }
             },
         },
