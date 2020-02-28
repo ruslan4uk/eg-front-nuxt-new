@@ -75,10 +75,10 @@
               Избранное <span v-if="$auth.user && $auth.user.favorite_tour">({{ $auth.user.favorite_tour.length }})</span>
             </el-dropdown-item>
 
-            <el-dropdown-item divided @click.native="handleCreateTour"
+            <el-dropdown-item divided @click.native="handleCreateTour" :disabled="!handleAllowProfile"
                               v-if="$auth.user.role === null || $auth.user.role === 'guide'">Новая экскурсия
             </el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push({ name: 'profile-index-tours'})"
+            <el-dropdown-item @click.native="$router.push({ name: 'profile-index-tours'})" :disabled="!handleAllowProfile"
                               v-if="$auth.user.role === null || $auth.user.role === 'guide'">Список экскурсий
             </el-dropdown-item>
 
@@ -121,6 +121,12 @@
                     this.isBlue = !(window.scrollY < 100 && (this.$nuxt.$data.layoutName === 'main'));
                 }
             },
+        },
+
+        computed: {
+            handleAllowProfile() {
+                return (this.$auth.user.role === 'guide' && this.$auth.user.active > 0)
+            }
         },
 
         mounted() {

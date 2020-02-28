@@ -19,8 +19,8 @@
           <h6 class="mb-3">Экскурсии</h6>
           <div class="left-navigation mb-4">
             <ul>
-              <li><a href="" @click.prevent="handleCreateTour" >Новый тур</a></li>
-              <li><nuxt-link :to="{ name: 'profile-index-tours' }" exact >Список туров</nuxt-link></li>
+              <li><a href="" @click.prevent="handleCreateTour" :class="!handleAllowProfile ? 'disabled' : ''">Новый тур</a></li>
+              <li><nuxt-link :to="{ name: 'profile-index-tours' }" exact :class="!handleAllowProfile ? 'disabled' : ''">Список туров</nuxt-link></li>
             </ul>
           </div>
         </div>
@@ -28,6 +28,17 @@
       </b-col>
 
       <b-col cols="12" md="8" lg="9">
+        <el-alert
+          v-if="!handleAllowProfile"
+          class="profile-alert mb-4"
+          title="Внимание! Необходимо заполнить профиль"
+          description="Для создания и редактирования экскурсий необходимо заполнить профиль"
+          type="error"
+          effect="dark"
+          show-icon
+          :closable="false">
+        </el-alert>
+
         <nuxt-child />
       </b-col>
     </b-row>
@@ -51,8 +62,13 @@ export default {
             this.$axios.get('/profile/tours/create').then( ({ data }) => {
                 this.$router.push({ name: 'profile-index-tours-id', params: { id: data.data } })
             })
-        }
+        },
     },
+    computed: {
+        handleAllowProfile() {
+          return (this.$auth.user.role === 'guide' && this.$auth.user.active > 0)
+        }
+    }
 }
 </script>
 

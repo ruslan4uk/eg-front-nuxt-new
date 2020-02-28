@@ -16,7 +16,7 @@ const User = {
           initService: 'init/service',
           initTiming: 'init/timing',
           initUnread: 'messenger/unread',
-        })
+        }),
       }
     })
   }
