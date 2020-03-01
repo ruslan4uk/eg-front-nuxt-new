@@ -8,7 +8,7 @@
       <b-row class="align-items-center pb-3">
         <b-col cols="12" md="4" lg="3" class="justify-content-center">
           <el-form-item prop="avatar" class="mb-0 text-center" :error="errors.avatar ? errors.avatar[0] : ''">
-            <avatar circle :url="'/profile/tours/uploader/avatar/' + $route.params.id" :avatar="form.avatar" @change="changeAvatar" class="d-flex justify-content-center" />
+            <avatar circle :url="'/profile/tours/uploader/avatar/' + $route.params.id" :avatar="form.avatar" @change="changeAvatar" />
           </el-form-item>
         </b-col>
 
@@ -171,7 +171,7 @@
 </template>
 
 <script>
-import Avatar from "@/components/Uploaders/Avatar";
+  import Avatar from "@/components/UploadAvatar/Main";
 import Uploader from "@/components/Uploaders/Multi";
 export default {
     components: {
